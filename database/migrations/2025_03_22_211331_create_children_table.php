@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('children', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('age');
-            $table->string('photo')->nullable();
+            $table->date('birth_date');
+            $table->string('image')->nullable();
+            $table->enum('gender',['انثي' , 'ذكر']);
             $table->string('report')->nullable();
-            $table->decimal('ml_score',5,2)->nullable();
-            $table->integer('questions_score')->nullable();
-            $table->decimal('final_result',4,1)->nullable();
+            $table->integer('total_questions_score')->nullable();
+            $table->decimal('ml_result',4,1)->nullable();
             $table->string('final_diagnosis')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

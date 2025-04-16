@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
-use Illuminate\Validation\Rules\Password;
 use function App\Helpers\SendRespones;
 
-use function Laravel\Prompts\password;
 
-class RegisterRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,10 +18,10 @@ class RegisterRequest extends FormRequest
         return true;
     }
 
-    protected function failedValidation(Validator $validator)
+    protected function failedValidation(validator $validator)
     {
         if ($this->is('api/*')) {
-            $resonse = SendResponse(422, __('keywords.Validation Error'), $validator->errors()->all());
+            $resonse = SendResponse(422, __('keywords.Validation Error'), $validator->errors());
             throw new ValidationException($validator, $resonse);
         }
     }
@@ -36,14 +34,12 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:Users',
-            'password' => ['required', 'confirmed', password::default()]
+            'email' => 'required|string|max:255',
+            'password' => 'required'
         ];
     }
     // public function attributes() {
     //     return[
-    //         'name'=>'',
     //         'email'=>'',
     //         'password'=>'',
     //     ];

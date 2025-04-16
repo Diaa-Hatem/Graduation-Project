@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category__scores', function (Blueprint $table) {
+        Schema::create('category_scores', function (Blueprint $table) {
             $table->id();
             $table->integer('category_score');
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
+
             $table->bigInteger('child_id')->unsigned();
             $table->foreign('child_id')->references('id')->on('children');
+            // $table->foreignId('child_id')->constrained('categories');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category__scores');
+        Schema::dropIfExists('category_scores');
     }
 };
