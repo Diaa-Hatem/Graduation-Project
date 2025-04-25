@@ -16,7 +16,8 @@ class AnswerResource extends JsonResource
     {
         return[
             'id'=>$this->id,
-            'answer'=>$this->answer
+            'answer'=>$this->answer,
+            'value'=>$this->value
         ];
     }
 }

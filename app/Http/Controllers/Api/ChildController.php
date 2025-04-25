@@ -104,7 +104,7 @@ class ChildController extends Controller
         {
             $report=$request->report;
             $newReport=Str::uuid()."-".$report->getClientOriginalName();
-            $report->storeAs('public/Reports'.$newReport);
+            $report->storeAs('public/Reports/'.$newReport);
             $child->report = $newReport;
             $child->save();
             return SendResponse(200, ' تم حفظ التقرير بنجاح ', []);

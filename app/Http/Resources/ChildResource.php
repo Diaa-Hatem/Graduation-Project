@@ -20,7 +20,8 @@ class ChildResource extends JsonResource
             'name' => $this->name,
             'age' => Carbon::parse($this->birth_date)->age,
             'image'=>$this->image,
-            'gender'=>$this->gender
+            'gender'=>$this->gender,
+            
         ];
     }
 }
