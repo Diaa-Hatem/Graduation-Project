@@ -56,24 +56,6 @@ class Category extends Model
      */
     protected $guarded = ['id'];
 
-
-    /**
-     * fields ordering in filteration
-     */
-    const ORDER = [''];
-
-
-    /**
-     * Upload Path
-     */
-    const UPLOADPATH = '';
-
-
-    /**
-     * fields that will handle upload document
-     */
-    const UPLOADFIELDS = [];
-
     ##--------------------------------- RELATIONSHIPS
     public function questions()
     {

@@ -22,7 +22,7 @@ class AuthController extends Controller
         $sendData['name'] = $request->name;
         $sendData['email'] = $request->email;
         if ($sendData) {
-            return SendResponse(201, __('keywords.User Account Created Successfully'), $sendData);
+            return SendResponse(201,' تم انشاء الحساب بنجاح ', $sendData);
         }
     }
     
@@ -31,7 +31,6 @@ class AuthController extends Controller
     {
         $data = $request->validated();
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // $user = Auth::user();
             $user = User::where('email', $request->email)->first();
             if ($user) {
                 $sendData['token'] =  $user->createToken('login Token')->plainTextToken;
@@ -39,7 +38,7 @@ class AuthController extends Controller
                 $sendData['email'] =  $user->email;
             }
 
-            return SendResponse(201, __('keywords.Login Successfully'), $sendData);
+            return SendResponse(201,' تم تسجيل الدخول بنجاح ', $sendData);
         } else {
             return SendResponse(401, __('keywords.These credentials doesn\'t exist'), null);
         }
@@ -50,6 +49,6 @@ class AuthController extends Controller
     {
         $request->user()->currentAccessToken()->delete();
 
-        return sendResponse(200, __('keywords.Logged out successfully'), []);
+        return sendResponse(200,' تم تسجيل الخروج بنجاح ', []);
     }
 }

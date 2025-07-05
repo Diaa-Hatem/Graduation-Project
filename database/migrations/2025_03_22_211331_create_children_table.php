@@ -21,10 +21,9 @@ return new class extends Migration
             $table->integer('total_questions_score')->nullable();
             $table->decimal('ml_result',4,1)->nullable();
             $table->string('final_diagnosis')->nullable();
+            $table->double('final_diagnosis_score')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
-
            
             $table->timestamps();
         });

@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 class Child extends Model
 {
-    use HasFactory;
+    use HasFactory,HasApiTokens;
 
      /**
      * The table associated with the model.
@@ -48,31 +49,12 @@ class Child extends Model
      */
     public $timestamps = true;
 
-
-    /**
+      /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $guarded = ['id'];
-
-
-    /**
-     * fields ordering in filteration
-     */
-    const ORDER = [''];
-
-
-    /**
-     * Upload Path
-     */
-    const UPLOADPATH = '';
-
-
-    /**
-     * fields that will handle upload document
-     */
-    const UPLOADFIELDS = [];
 
     ##--------------------------------- RELATIONSHIPS
     public function category_scores()

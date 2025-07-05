@@ -2,11 +2,10 @@
 
 namespace App\Http\Resources;
 
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ChildResource extends JsonResource
+class CategoryScore extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,11 +16,10 @@ class ChildResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'age' => Carbon::parse($this->birth_date)->age,
-            'image'=>$this->image,
-            'gender'=>$this->gender,
-            
+            'category_score' => $this->category_score,
+            'child_id' => $this->child_id,
+            'category_id' => $this->category_id
+
         ];
     }
 }

@@ -21,9 +21,11 @@ class MyChildrenResource extends JsonResource
             "image" => $this->image,
             "gender"=>$this->gender,
             "report" => $this->report,
-            "total_questions_score" => $this->questions_score,
+            "total_questions_score" => $this->total_questions_score,
             "ml_result" => $this->ml_result,
             "final_diagnosis" => $this->final_diagnosis,
+            "final_diagnosis_score" => $this->final_diagnosis_score,
+
         ];
     }
 }

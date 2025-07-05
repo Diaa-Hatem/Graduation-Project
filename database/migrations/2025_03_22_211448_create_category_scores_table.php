@@ -19,7 +19,6 @@ return new class extends Migration
 
             $table->bigInteger('child_id')->unsigned();
             $table->foreign('child_id')->references('id')->on('children');
-            // $table->foreignId('child_id')->constrained('categories');
             $table->timestamps();
         });
     }
