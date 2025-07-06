@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/test', function()
 {
-    return response('its work',200);
+    return response('its works',200);
 });
 
 
