@@ -21,7 +21,7 @@ class ChatBotController extends Controller
                 return SendResponse(400,'قم بادخال السؤال',[]);
             }
 
-            $url='https://6e6d-197-35-246-166.ngrok-free.app/ask';
+            $url='https://02e0-196-134-66-44.ngrok-free.app/ask';
             $response = Http::withHeaders([
                 // 'Authorization' => config('services.chatbot.token'),
                 'Content-Type' => 'application/json',
