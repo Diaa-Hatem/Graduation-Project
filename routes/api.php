@@ -22,6 +22,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test', function()
+{
+    return response('its work',200);
+});
+
+
 Route::controller(AuthController::class)->group(function () {
     Route::post('/register', 'register');
     Route::post('/login', 'login');
@@ -32,7 +38,6 @@ Route::prefix('child')->controller(ChildController::class)->middleware('auth:san
     Route::post('/create', 'create');
     Route::get('/mychildren/{child_id}', 'mychildern');
     Route::post('/{child_id}/report', 'addReport');
-  
 });
 
 Route::prefix('child')->group(function () {
@@ -40,11 +45,11 @@ Route::prefix('child')->group(function () {
     Route::get('/questions', QuestionController::class);
     Route::get('/answers', AnswerController::class);
 
-    Route::controller(CategoryScoreController::class)->middleware('auth:sanctum')->group(function(){
-        Route::post('/category-score','categoryScore');
-        Route::get('/mycategory-score/{chili_id}','MyCategoryScore');
+    Route::controller(CategoryScoreController::class)->middleware('auth:sanctum')->group(function () {
+        Route::post('/category-score', 'categoryScore');
+        Route::get('/mycategory-score/{chili_id}', 'MyCategoryScore');
     });
-    Route::post('/chatbot',[ChatBotController::class,'ask'])->middleware('auth:sanctum');
+    Route::post('/chatbot', [ChatBotController::class, 'ask'])->middleware('auth:sanctum');
 });
 
 
