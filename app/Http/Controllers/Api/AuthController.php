@@ -18,6 +18,7 @@ class AuthController extends Controller
         $data = $request->validated();
         $data['password'] = Hash::make($request->password);
         $user = User::create($data);
+        
         $sendData['token'] = $user->createToken('Register Api')->plainTextToken;
         $sendData['name'] = $request->name;
         $sendData['email'] = $request->email;

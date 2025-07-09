@@ -31,23 +31,23 @@ class ChildController extends Controller
             $image->storeAS('public/Children', $newImage);
             $data['image'] = $newImage;
 
-            $aiUrl = 'https://0a3c-197-35-226-11.ngrok-free.app/predict';
-            $response = Http::attach(
-                'image',
-                file_get_contents($image->getPathname()),
-                $newImage
-            )->post($aiUrl);
+            // $aiUrl = 'https://0a3c-197-35-226-11.ngrok-free.app/predict';
+            // $response = Http::attach(
+            //     'image',
+            //     file_get_contents($image->getPathname()),
+            //     $newImage
+            // )->post($aiUrl);
 
-            if ($response->successful()) {
-                $result = $response->json();
-                $data['ml_result'] = $result['confidence'];
+            // if ($response->successful()) {
+            //     $result = $response->json();
+            //     $data['ml_result'] = $result['confidence'];
 
-            $record = Child::create($data);
-            if ($record) return  SendResponse(201, ' تم اضافه الطفل بنجاح ', new MyChildrenResource($record));
-            } else {
-                $message=' قم بادخال صوره صحيحة ';
-                return  SendResponse(201, ' ', $message);
-            }
+            // $record = Child::create($data);
+            // if ($record) return  SendResponse(201, ' تم اضافه الطفل بنجاح ', new MyChildrenResource($record));
+            // } else {
+            //     $message=' قم بادخال صوره صحيحة ';
+            //     return  SendResponse(201, ' ', $message);
+            // }
         }
         $record = Child::create($data);
         if ($record) return  SendResponse(201, ' تم اضافه الطفل بنجاح بدون فحص الصوره', new MyChildrenResource($record));
