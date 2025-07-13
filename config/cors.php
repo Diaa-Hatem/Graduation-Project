@@ -21,11 +21,7 @@ return [
     'allowed_methods' => ['*'],
 
     'allowed_origins' => [
-        // 'http://localhost:3000',
-        // 'http://localhost:5174',
-        // "localhost",
-        // "127.0.0.1",
-        // 'https://4088-197-35-149-139.ngrok-free.app'
+        
         'https://autism-journey-25xh.vercel.app'
     ],
 
