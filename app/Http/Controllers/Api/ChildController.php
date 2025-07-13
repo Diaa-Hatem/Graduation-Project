@@ -28,7 +28,7 @@ class ChildController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->image;
             $newImage = Str::uuid() . "-" . $image->getClientOriginalName();
-            $image->storeAS('public/Children', $newImage);
+            $image->storeAS('public/children', $newImage);
             $data['image'] = $newImage;
 
             $aiUrl = 'https://ali-saleh-22-autism.hf.space/predict';
@@ -76,7 +76,7 @@ class ChildController extends Controller
         if ($request->hasFile('report')) {
             $report = $request->report;
             $newReport = Str::uuid() . "-" . $report->getClientOriginalName();
-            $report->storeAs('public/reports/' . $newReport);
+            $report->storeAs('public/reports' . $newReport);
             $child->report = $newReport;
             $child->save();
             return SendResponse(200, ' تم حفظ التقرير بنجاح ', []);
